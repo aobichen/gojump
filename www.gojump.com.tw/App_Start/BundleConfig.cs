@@ -20,12 +20,20 @@ namespace www.gojump.com.tw
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+                      //"~/Scripts/bootstrap.js",
+                      //"~/Scripts/respond.js",
+                      "~/Content/Gentelella/bootstrap/dist/js/bootstrap.js",
+                      "~/Scripts/Gentelella/custom.min.js"
+                      ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      //"~/Content/bootstrap.css",
+                      //"~/Content/site.css",
+                      "~/Content/Gentelella/font-awesome/css/font-awesome.css",
+                      "~/Content/Gentelella/bootstrap/dist/css/bootstrap.css",
+                      "~/Content/Gentelella/custom.css"
+                      
+                      ));
         }
     }
 }

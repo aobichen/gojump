@@ -1,4 +1,3 @@
-C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\www.gojump.com.tw.dll.config
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\www.gojump.com.tw.dll
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\www.gojump.com.tw.pdb
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\Antlr3.Runtime.dll
@@ -80,3 +79,5 @@ C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\zh-
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\zh-Hant\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\obj\Debug\www.gojump.com.tw.dll
 C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\obj\Debug\www.gojump.com.tw.pdb
+C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\bin\www.gojump.com.tw.dll.config
+C:\Users\aobi\Documents\SOHOProjects\www.gojump.com.tw\www.gojump.com.tw\obj\Debug\www.gojump.com.tw.csprojResolveAssemblyReference.cache
