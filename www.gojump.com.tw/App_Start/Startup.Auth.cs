@@ -17,6 +17,7 @@ namespace www.gojump.com.tw
             // 設定資料庫內容、使用者管理員和登入管理員，以針對每個要求使用單一執行個體
             app.CreatePerOwinContext(ApplicationDbContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
+            app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
 
             // 讓應用程式使用 Cookie 儲存已登入使用者的資訊
@@ -30,9 +31,10 @@ namespace www.gojump.com.tw
                 {
                     // 讓應用程式在使用者登入時驗證安全性戳記。
                     // 這是您變更密碼或將外部登入新增至帳戶時所使用的安全性功能。  
-                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser>(
-                        validateInterval: TimeSpan.FromMinutes(30),
-                        regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
+                    OnValidateIdentity = SecurityStampValidator.OnValidateIdentity<ApplicationUserManager, ApplicationUser, int>(
+                         validateInterval: TimeSpan.FromMinutes(30),
+                         regenerateIdentityCallback: (manager, user) => user.GenerateUserIdentityAsync(manager),
+                         getUserIdCallback: id => id.GetUserId<int>())
                 }
             });            
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);

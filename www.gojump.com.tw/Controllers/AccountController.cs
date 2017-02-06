@@ -17,9 +17,11 @@ namespace www.gojump.com.tw.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+       
 
         public AccountController()
         {
+            
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -52,6 +54,32 @@ namespace www.gojump.com.tw.Controllers
             }
         }
 
+        private ApplicationRoleManager _roleManager;
+        public ApplicationRoleManager RoleManager
+        {
+            get
+            {
+                return _roleManager ?? HttpContext.GetOwinContext().Get<ApplicationRoleManager>();
+            }
+            private set
+            {
+                _roleManager = value;
+            }
+        }
+
+
+        private void CreateRoles()
+        {
+            var Roles = new string[]{"System","Admin","Hotel"};
+            foreach (var item in Roles)
+            {
+                if (!RoleManager.RoleExists(item))
+                {
+                    var role = new Role(item);
+                    RoleManager.CreateAsync(role);
+                }
+            }
+        }
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -169,6 +197,13 @@ namespace www.gojump.com.tw.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    var roleName = "Hotel";
+                    if (!RoleManager.RoleExists(roleName))
+                    {
+                        var role = new Role(roleName);
+                        await RoleManager.CreateAsync(role);
+                    }
+                    UserManager.AddToRole(user.Id, "Hotel");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // 如需如何啟用帳戶確認和密碼重設的詳細資訊，請造訪 http://go.microsoft.com/fwlink/?LinkID=320771
@@ -189,9 +224,9 @@ namespace www.gojump.com.tw.Controllers
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
-        public async Task<ActionResult> ConfirmEmail(string userId, string code)
+        public async Task<ActionResult> ConfirmEmail(int userId, string code)
         {
-            if (userId == null || code == null)
+            if (userId <= 0 || code == null)
             {
                 return View("Error");
             }

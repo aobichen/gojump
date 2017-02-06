@@ -20,6 +20,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -169,8 +170,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="images\user.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\LoginStyle\fonts\fontawesome-webfont.eot" />
@@ -361,9 +363,28 @@
     <Content Include="Content\Gentelella\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Content\Gentelella\font-awesome\scss\_stacked.scss" />
     <Content Include="Content\Gentelella\font-awesome\scss\_variables.scss" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\.bower.json" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\js\jquery-2.0.0.min.js" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\more_examples\services\service.php" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\more_examples\smartwizard2-validation.php" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\README.md" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\bower.json" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Gentelella\custom.js" />
     <Content Include="Scripts\Gentelella\custom.min.js" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\images\loader.gif" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\index.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\js\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\js\jquery.smartWizard.js" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\more_examples\smartwizard2-ajax.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\smartwizard-autostep.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\smartwizard2-ajax.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\smartwizard2-multiple.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\smartwizard2-validation.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\smartwizard2-vertical.htm" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\styles\demo_style.css" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\styles\smart_wizard.css" />
+    <Content Include="Scripts\Gentelella\jQuery-Smart-Wizard\styles\smart_wizard_vertical.css" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -414,6 +435,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
